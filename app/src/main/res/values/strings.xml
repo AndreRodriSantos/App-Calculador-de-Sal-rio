@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">App-CalculodeSalario</string>
+    <string name="button_calc">Calcular</string>
+    <string name="sal_bruto">Salario Bruto</string>
+    <string name="sal_liquido">Salario Liquido</string>
+    <string name="num_depend">Numero dependentes</string>
+    <string name="plano_saude">Tipo de Plano de Saúde</string>
+
+    <string-array name="tipos_plano">
+        <item>Standard</item>
+        <item>Básico</item>
+        <item>Super</item>
+        <item>Master</item>
+    </string-array>
+
+    <string name="va">VA</string>
+    <string name="vt">VT</string>
+    <string name="vr">VR</string>
+    <string name="sim">Sim</string>
+    <string name="nao">Não</string>
+    <string name="desconto">Desconto</string>
+    <string name="resultado">Resultado</string>
+    <string name="valida">Campo Vazio</string>
+</resources>
