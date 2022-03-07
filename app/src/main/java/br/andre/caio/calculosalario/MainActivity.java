@@ -65,27 +65,66 @@ public class MainActivity extends AppCompatActivity {
             } else if (editDep.getText().toString().isEmpty()) {
                 editDep.setError(getString(R.string.valida));
             }else if(va.getCheckedRadioButtonId() == -1) {
-                Toast.makeText(this, "teste", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Não Selecionou VA", Toast.LENGTH_SHORT).show();
             }else if(vr.getCheckedRadioButtonId() == -1) {
-                Toast.makeText(this, "teste", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Não Selecionou VR", Toast.LENGTH_SHORT).show();
             }else if(vt.getCheckedRadioButtonId() == -1) {
-                Toast.makeText(this, "teste", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Não Selecionou VT", Toast.LENGTH_SHORT).show();
         }else {
                 double sb, dp, sl, inss, irrf;
+                int ps = 0;
                 sb = Double.parseDouble(editSB.getText().toString());
                 dp = Integer.parseInt(editDep.getText().toString());
-                if (sb <= 1045) {
+                int planosec = plano.getSelectedItemPosition();
+                //Calculo do INSS
+                if (sb <= 1212.00) {
                     inss = 0.075 * sb - 0.00;
-                } else if (sb > 1045 && sb <= 2089.60) {
-                    inss = 0.09 * sb - 15.68;
-                } else if (sb > 2089.61 && sb <= 3134.40) {
-                    inss = 0.12 * sb - 78.38;
-                } else if (sb > 3134.41 && sb <= 6101.06) {
-                    inss = 0.14 * sb - 141.07;
+                } else if (sb > 1212.00 && sb <= 2427.35) {
+                    inss = 0.09 * sb - 18.18;
+                } else if (sb > 2427.35 && sb <= 3641.03) {
+                    inss = 0.12 * sb - 91.00;
+                } else if (sb > 3641.03 && sb <= 7087.22) {
+                    inss = 0.14 * sb - 163.82;
                 } else {
                     inss = 713.80 - sb;
                 }
-                textSB.setText("");
+
+                //Calculo do Plano de Saude
+                switch (planosec) {
+                    case 0:
+                        if (sb <= 3000) {
+                            ps = 60;
+                        } else {
+                            ps = 80;
+                        }
+                        break;
+                    case 1:
+                        if (sb <= 3000) {
+                            ps = 80;
+                        } else {
+                            ps = 110;
+                        }
+                        break;
+                    case 2:
+                        if (sb <= 3000) {
+                            ps = 95;
+                        } else {
+                            ps = 135;
+                        }
+                        break;
+                    case 3:
+                        if (sb <= 3000) {
+                            ps = 130;
+                        } else {
+                            ps = 180;
+                        }
+                        break;
+                    default:
+                        break;
+                }
+
+                //Calculo
+                textSB.setText(String.valueOf(ps));
             }
             });
         }
