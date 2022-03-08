@@ -18,7 +18,7 @@ import com.google.android.material.snackbar.Snackbar;
 import java.time.Clock;
 
 public class MainActivity extends AppCompatActivity {
-    private Button buttonCalc;
+    private Button buttonCalc, buttonLimpar;
     private Spinner plano;
     private EditText editSB, editDep;
     private RadioGroup va, vt, vr;
@@ -38,6 +38,7 @@ public class MainActivity extends AppCompatActivity {
         buttonCalc = findViewById(R.id.calc);
         vr = findViewById(R.id.vr);
         sb_result = findViewById(R.id.sb_result);
+        plano_result = findViewById(R.id.plano_result);
         inss_result = findViewById(R.id.inss_result);
         sl_result = findViewById(R.id.sl_result);
         va_result = findViewById(R.id.va_result);
@@ -45,6 +46,7 @@ public class MainActivity extends AppCompatActivity {
         vr_result = findViewById(R.id.vr_result);
         irrf_result = findViewById(R.id.irrf_result);
         desconto_result = findViewById(R.id.desconto_result);
+        buttonLimpar = findViewById(R.id.limpar);
 
         plano.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -60,6 +62,15 @@ public class MainActivity extends AppCompatActivity {
         //buttton calc
         Button bt_calc = findViewById(R.id.calc);
         bt_calc.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                int radioId = va.getCheckedRadioButtonId();
+                radioButton = findViewById(radioId);
+
+            }
+        });
+        Button bt_limpar = findViewById(R.id.limpar);
+        bt_limpar.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
                 int radioId = va.getCheckedRadioButtonId();
@@ -133,29 +144,29 @@ public class MainActivity extends AppCompatActivity {
                 // Calculo do desconto de vale Transporte
 
                 switch (vt.getCheckedRadioButtonId()) {
-                    case 1:
+                    case R.id.vtsim:
                         vtValor = sb * 0.06;
                         break;
-                    case 2:
+                    case R.id.vtnao:
                         break;
                 }
                 // Calculo do desconto de vale Alimentação.
                 switch (va.getCheckedRadioButtonId()) {
-                    case 1:
+                    case R.id.vasim:
                         if (sb <= 3000) {
                             vaValor = 15;
                         } else if (sb >= 3001 && sb <= 5000) {
-                            sb = 25;
+                            vaValor = 25;
                         } else {
-                            sb = 35;
+                            vaValor = 35;
                         }
                         break;
-                    case 2:
+                    case R.id.vanao:
                         break;
                 }
                 // Calculo do desconto de vale Refeição.
                 switch (vr.getCheckedRadioButtonId()) {
-                    case 1:
+                    case R.id.vrsim:
                         if (sb <= 3000) {
                             vrValor = 2.60 * 22;
                         } else if (sb >= 3001 && sb <= 5000) {
@@ -164,7 +175,7 @@ public class MainActivity extends AppCompatActivity {
                             vrValor = 6.50 * 22;
                         }
                         break;
-                    case 2:
+                    case R.id.vrnao:
                         break;
                 }
                 // Calcula o IRRF base.
@@ -185,24 +196,34 @@ public class MainActivity extends AppCompatActivity {
                 sl = sb - inss - vtValor - vrValor - vaValor - irrf - ps;
 
                 //calculo dos descontos
-                double descontos = (sl - sb) * 0;
+                double descontos =  (sb / sl) * 100;
 
                 //exibição
-                sb_result.setText(String.format("Salario Bruto: %2$f", getString(R.string.sb_result), sb));
-                inss_result.setText(String.format("Inss: %2$f", getString(R.string.inss_result), inss));
-
-                va_result.setText(String.format("Vale Alimentação: %2$f", getString(R.string.va_result), vaValor));
-                vt_result.setText(String.format("Vale Transporte: %2$f", getString(R.string.vt_result), vtValor));
-                vr_result.setText(String.format("Vale Refeição: %2$f", getString(R.string.vr_result), vrValor));
-                irrf_result.setText(String.format("IRRD: %2$f", getString(R.string.irrf_result), irrf));
-                sl_result.setText(String.format("Salario Liquido: %2$f", getString(R.string.sl_result), sl));
-                desconto_result.setText(String.format("Descontos: %2$f", getString(R.string.desconto), descontos));
-
+                sb_result.setText(getString(R.string.sb_result, sb));
+                inss_result.setText(getString(R.string.inss_result, inss));
+                plano_result.setText(getString(R.string.plano_result, ps));
+                va_result.setText(getString(R.string.va_result, vaValor));
+                vt_result.setText(getString(R.string.vt_result, vtValor));
+                vr_result.setText(getString(R.string.vr_result, vrValor));
+                irrf_result.setText(getString(R.string.irrf_result, irrf));
+                sl_result.setText(getString(R.string.sl_result, sl));
+                desconto_result.setText(getString(R.string.desconto, descontos) + "R$");
             }
             });
+        buttonLimpar.setOnClickListener(v -> {
+            editSB.setText(null);
+            editDep.setText(null);
+            va.clearCheck();
+            vt.clearCheck();
+            vr.clearCheck();
+
+        });
         }
     public void checkButton(View va){
         Toast.makeText(this, "Selected Radio Button: " + radioButton.getText(), Toast.LENGTH_SHORT).show();
     }
-    }
+
+
+}
+
 

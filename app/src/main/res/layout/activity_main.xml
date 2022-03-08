@@ -62,19 +62,21 @@
             <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/sim">
+                android:text="@string/sim"
+                android:id="@+id/vasim">
             </RadioButton>
             <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/nao">
+                android:text="@string/nao"
+                android:id="@+id/vanao">
             </RadioButton>
         </RadioGroup>
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/vt" />
+            android:text="@string/vt"/>
 
         <RadioGroup
             android:layout_width="wrap_content"
@@ -84,12 +86,14 @@
             <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/sim">
+                android:text="@string/sim"
+                android:id="@+id/vtsim">
             </RadioButton>
             <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/nao">
+                android:text="@string/nao"
+                android:id="@+id/vtnao">
             </RadioButton>
         </RadioGroup>
 
@@ -106,13 +110,15 @@
             <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/sim">
+                android:text="@string/sim"
+                android:id="@+id/vrsim">
 
             </RadioButton>
             <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/nao">
+                android:text="@string/nao"
+                android:id="@+id/vrnao">
             </RadioButton>
         </RadioGroup>
 
@@ -131,56 +137,54 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/sb_result"
             android:id="@+id/sb_result"/>
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/inss_result"
             android:id="@+id/inss_result"/>
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/plano_result"
             android:id="@+id/plano_result"/>
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/va_result"
             android:id="@+id/va_result"/>
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/vt_result"
             android:id="@+id/vt_result"/>
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/vr_result"
             android:id="@+id/vr_result"/>
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/irrf_result"
             android:id="@+id/irrf_result"/>
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/sl_result"
             android:id="@+id/sl_result"/>
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/desconto"
             android:id="@+id/desconto_result"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/button_limpar"
+            android:id="@+id/limpar">
+        </Button>
 
     </LinearLayout>
 </ScrollView>
