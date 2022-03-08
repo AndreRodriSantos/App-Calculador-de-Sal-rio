@@ -2,9 +2,8 @@
     <string name="app_name">App-CalculodeSalario</string>
     <string name="button_calc">Calcular</string>
     <string name="sal_bruto">Salario Bruto</string>
-    <string name="sal_liquido">Salario Liquido</string>
     <string name="num_depend">Numero dependentes</string>
-    <string name="plano_saude">Tipo de Plano de Saúde</string>
+    <string name="plano_saude">Plano de Saúde</string>
 
     <string-array name="tipos_plano">
         <item>Standard</item>
@@ -18,7 +17,17 @@
     <string name="vr">VR</string>
     <string name="sim">Sim</string>
     <string name="nao">Não</string>
-    <string name="desconto">Desconto</string>
-    <string name="resultado">Resultado</string>
+
     <string name="valida">Campo Vazio</string>
+
+    <string name="resultado">Resultados</string>
+    <string name="sb_result">Salário Bruto: %2$f</string>
+    <string name="plano_result">Plano de Saude: %2$f</string>
+    <string name="inss_result">Inss: %2$f </string>
+    <string name="va_result">Vale Alimentação: %2$f</string>
+    <string name="vt_result">Vale Transporte: %2$f</string>
+    <string name="vr_result">Vale Refeição: %2$f</string>
+    <string name="irrf_result">IRFF: %2$f</string>
+    <string name="sl_result">Salario Liquido: %2$f</string>
+    <string name="desconto">Descontos Totais: %2$f</string>
 </resources>

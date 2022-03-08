@@ -20,7 +20,8 @@
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/sal_Bruto">
+            android:id="@+id/sal_Bruto"
+            android:inputType="numberDecimal">
         </EditText>
 
         <TextView
@@ -31,13 +32,14 @@
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/numDependentes">
+            android:id="@+id/numDependentes"
+            android:inputType="number">
         </EditText>
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/num_depend" />
+            android:text="@string/plano_saude" />
 
         <Spinner
             android:layout_width="match_parent"
@@ -124,32 +126,61 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/sal_bruto"/>
+            android:text="@string/resultado"/>
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/sal_brutoResult"/>
+            android:text="@string/sb_result"
+            android:id="@+id/sb_result"/>
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/sal_liquido"/>
+            android:text="@string/inss_result"
+            android:id="@+id/inss_result"/>
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/sal_liquidoResult"/>
-
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/desconto"/>
+            android:text="@string/plano_result"
+            android:id="@+id/plano_result"/>
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/descontos"/>
+            android:text="@string/va_result"
+            android:id="@+id/va_result"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/vt_result"
+            android:id="@+id/vt_result"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/vr_result"
+            android:id="@+id/vr_result"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/irrf_result"
+            android:id="@+id/irrf_result"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/sl_result"
+            android:id="@+id/sl_result"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/desconto"
+            android:id="@+id/desconto_result"/>
+
     </LinearLayout>
 </ScrollView>
