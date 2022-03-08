@@ -80,6 +80,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
         buttonCalc.setOnClickListener(v -> {
+
             if (editSB.getText().toString().isEmpty()) {
                 editSB.setError(getString(R.string.valida));
             } else if (editDep.getText().toString().isEmpty()) {
@@ -216,6 +217,15 @@ public class MainActivity extends AppCompatActivity {
             va.clearCheck();
             vt.clearCheck();
             vr.clearCheck();
+            sb_result.setText("");
+            inss_result.setText("");
+            plano_result.setText("");
+            va_result.setText("");
+            vt_result.setText("");
+            vr_result.setText("");
+            irrf_result.setText("");
+            sl_result.setText("");
+            desconto_result.setText("");
 
         });
         }
